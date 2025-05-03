@@ -1,0 +1,1 @@
+-- Paste code from worksheet 'SQL_Add_and_rename_columns.sql' here and refactor following repo conventions.
