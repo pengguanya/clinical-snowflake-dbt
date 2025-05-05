@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: raw
+    database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+    schema: RAW
+    tables:
+      - name: DM
+      - name: AE
+      - name: CM
+
+models:
+  - name: stg_dm
+    tests:
+      - not_null:
+          column_name: USUBJID
+  - name: stg_ae
+    tests:
+      - not_null:
+          column_name: USUBJID
+      - relationships:
+          to: ref('stg_dm')
+          field: USUBJID
+          to_field: USUBJID
+  - name: stg_cm
