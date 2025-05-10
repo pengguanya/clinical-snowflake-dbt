@@ -1,0 +1,15 @@
+```mermaid
+erDiagram
+    DM ||--o{ AE : has
+    DM {
+        string STUDYID
+        string USUBJID PK
+        string SITEID
+        int AGE
+        string SEX
+        string ARM
+        string RFSTDTC
+        string BRTHDTC  // may be partial
+    }
+    AE {
+        string STUDYID
