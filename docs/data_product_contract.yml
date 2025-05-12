@@ -1,0 +1,33 @@
+name: clinical_dm_core
+owner: clinical-data-management@your-company.com
+domain: clinical_data_management
+description: Curated clinical core entities (DM, AE, CM) and quality/KPI metrics for study oversight.
+version: 1.0.0
+slas:
+  data_freshness: PT6H
+  availability: "99.5%"
+schema:
+  tables:
+    - name: dim_subject
+      keys: [USUBJID]
+    - name: fct_ae
+      keys: [USUBJID, AESEQ]
+    - name: gold_study_quality_kpis
+      keys: [STUDYID]
+kpis:
+  - name: ae_serious_rate
+    formula: "count(AESER='Y') / count(AE)"
+  - name: dm_usubjid_completeness
+    formula: "valid USUBJID / total DM records"
+access:
+  rbac_roles: [ROLE_CDM_ENGINEER, ROLE_CDM_ANALYST]
+compliance:
+  masking:
+    - column: USUBJID
+      policy: MASK_USUBJID
+row_access:
+  - policy: RLS_STUDYID
+    column: STUDYID
+lineage:
+  upstream: [RAW.DM, RAW.AE, RAW.CM]
+  downstream: [GOLD.GOLD_STUDY_QUALITY_KPIS]
