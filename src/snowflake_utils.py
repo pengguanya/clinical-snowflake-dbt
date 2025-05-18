@@ -43,3 +43,48 @@ def _force_session_context(conn, cfg: SnowflakeConfig) -> None:
                 "Name may be wrong or your role lacks USAGE. Under your active role, try:\n"
                 f"  SHOW WAREHOUSES LIKE '{cfg.warehouse}';\n"
                 "and ask for: GRANT USAGE ON WAREHOUSE <WH> TO ROLE <ROLE>."
+            ) from e
+
+        if cfg.database:
+            cur.execute(f"USE DATABASE {cfg.database}")
+
+def get_connector(token: str | None = None):
+    cfg = SnowflakeConfig()
+    params = {
+        "account": cfg.account,
+        "user": cfg.user,
+        "role": cfg.role or None,
+        "warehouse": None,   # let _force_session_context do it explicitly
+        "database": cfg.database or None,
+    }
+    if cfg.host:
+        params["host"] = cfg.host
+
+    am = (cfg.auth_method or "password").lower()
+    if am == "oauth":
+        tok = token or os.getenv("SNOWFLAKE_OAUTH_TOKEN")
+        if not tok:
+            raise RuntimeError("SNOWFLAKE_AUTH_METHOD=oauth but no token provided and SNOWFLAKE_OAUTH_TOKEN is empty.")
+        params["authenticator"] = "oauth"
+        params["token"] = tok
+    elif am == "externalbrowser":
+        params["authenticator"] = "externalbrowser"
+    else:
+        params["password"] = cfg.password
+
+    conn = snowflake.connector.connect(**{k: v for k, v in params.items() if v is not None})
+    _force_session_context(conn, cfg)
+    return conn
+
+def execute_sql(sql: str):
+    conn = get_connector()
+    try:
+        with conn.cursor() as cur:
+            cur.execute(sql)
+            try:
+                return cur.fetchall()
+            except Exception:
+                return None
+    finally:
+        conn.close()
+
