@@ -1,0 +1,18 @@
+name: 'clinical_cdm_dbt'
+version: '1.0'
+config-version: 2
+
+profile: 'clinical_cdm_profile'
+model-paths: ['models']
+macro-paths: ['macros']
+
+models:
+  clinical_cdm_dbt:
+    +materialized: table
+    staging:
+      +schema: STAGING
+    silver:
+      +schema: SILVER
+    gold:
+      # +schema: GOLD
+      +materialized: view
