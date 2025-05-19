@@ -52,3 +52,57 @@ Parsing Error
 [0m00:58:47.915646 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x711cd371f750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x711ccebcfdd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x711ccea5b4d0>]}
 [0m00:58:47.915908 [debug] [MainThread]: Flushing usage events
 [0m00:58:48.273643 [debug] [MainThread]: Error sending anonymous usage statistics. Disabling tracking for this execution. If you wish to permanently disable tracking, see: https://docs.getdbt.com/reference/global-configs#send-anonymous-usage-stats.
+[0m01:00:38.430493 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731c5dfafe10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731c5dfaff50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731c5dfaff90>]}
+
+
+============================== 01:00:38.432300 | 054392cd-4772-44c4-b755-3cecf68d6bc8 ==============================
+[0m01:00:38.432300 [info ] [MainThread]: Running with dbt=1.8.6
+[0m01:00:38.432640 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'profiles_dir': '.', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt debug --profiles-dir .', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m01:00:38.436991 [info ] [MainThread]: dbt version: 1.8.6
+[0m01:00:38.437390 [info ] [MainThread]: python version: 3.11.6
+[0m01:00:38.437619 [info ] [MainThread]: python path: /home/pengg3/work/clinical-data-management-snowflake-dbt/.venv/bin/python3
+[0m01:00:38.437826 [info ] [MainThread]: os info: Linux-6.8.0-86-generic-x86_64-with-glibc2.35
+[0m01:00:38.442629 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Env var required but not provided: 'SNOWFLAKE_OAUTH_TOKEN'
+[0m01:00:38.443155 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_wall_clock_time": 0.045387764, "process_user_time": 3.154027, "process_kernel_time": 0.12696, "process_mem_max_rss": "116876", "process_out_blocks": "8", "command_success": false, "process_in_blocks": "0"}
+[0m01:00:38.443459 [debug] [MainThread]: Command `dbt debug` failed at 01:00:38.443410 after 0.05 seconds
+[0m01:00:38.443702 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731c5dfada50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731c62b1f750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731c62b93c90>]}
+[0m01:00:38.443972 [debug] [MainThread]: Flushing usage events
+[0m01:00:38.806240 [debug] [MainThread]: Error sending anonymous usage statistics. Disabling tracking for this execution. If you wish to permanently disable tracking, see: https://docs.getdbt.com/reference/global-configs#send-anonymous-usage-stats.
+[0m01:01:32.766261 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x712c7a8a1490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x712c7a855f90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x712c7a8a3dd0>]}
+
+
+============================== 01:01:32.772991 | 86b4e36d-83bf-409e-9a43-fec820e8b8c7 ==============================
+[0m01:01:32.772991 [info ] [MainThread]: Running with dbt=1.8.6
+[0m01:01:32.774667 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '.', 'version_check': 'True', 'warn_error': 'None', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt debug --profiles-dir .', 'send_anonymous_usage_stats': 'True'}
+[0m01:01:32.785315 [info ] [MainThread]: dbt version: 1.8.6
+[0m01:01:32.786092 [info ] [MainThread]: python version: 3.11.6
+[0m01:01:32.786700 [info ] [MainThread]: python path: /home/pengg3/work/clinical-data-management-snowflake-dbt/.venv/bin/python3
+[0m01:01:32.787265 [info ] [MainThread]: os info: Linux-6.8.0-86-generic-x86_64-with-glibc2.35
+[0m01:01:33.724286 [info ] [MainThread]: Using profiles dir at .
+[0m01:01:33.725114 [info ] [MainThread]: Using profiles.yml file at ./profiles.yml
+[0m01:01:33.725692 [info ] [MainThread]: Using dbt_project.yml file at /home/pengg3/work/clinical-data-management-snowflake-dbt/dbt/dbt_project.yml
+[0m01:01:33.726676 [info ] [MainThread]: adapter type: snowflake
+[0m01:01:33.727274 [info ] [MainThread]: adapter version: 1.8.3
+[0m01:01:33.727850 [info ] [MainThread]: Configuration:
+[0m01:01:33.728382 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m01:01:33.728858 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m01:01:33.729332 [info ] [MainThread]: Required dependencies:
+[0m01:01:33.729844 [debug] [MainThread]: Executing "git --help"
+[0m01:01:33.733709 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m01:01:33.734537 [debug] [MainThread]: STDERR: "b''"
+[0m01:01:33.735085 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m01:01:33.735617 [info ] [MainThread]: Connection:
+[0m01:01:33.736144 [info ] [MainThread]:   account: roche_pd.eu-central-1
+[0m01:01:33.736641 [info ] [MainThread]:   user: pengg3
+[0m01:01:33.737128 [info ] [MainThread]:   database: PDIL_DEV_DCH02
+[0m01:01:33.737621 [info ] [MainThread]:   warehouse: PDIL_DCH_PROD_DIS_WH
+[0m01:01:33.738138 [info ] [MainThread]:   role: GLOAZUSFPD_PDIL_DCHADDONS_AIML_SUPPORT
+[0m01:01:33.738638 [info ] [MainThread]:   schema: DIS_CORE_DCHADDONS_AIML_DATA
+[0m01:01:33.739123 [info ] [MainThread]:   authenticator: oauth
+[0m01:01:33.739599 [info ] [MainThread]:   oauth_client_id: None
+[0m01:01:33.740055 [info ] [MainThread]:   query_tag: None
+[0m01:01:33.740537 [info ] [MainThread]:   client_session_keep_alive: True
+[0m01:01:33.740990 [info ] [MainThread]:   host: None
