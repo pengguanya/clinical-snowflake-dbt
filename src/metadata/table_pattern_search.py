@@ -6,3 +6,11 @@ def search_tables(pattern: str, schema='RAW'):
     from information_schema.tables
     where table_schema = '{schema}' and table_name ilike '%{pattern}%'
     order by table_name
+    """
+    conn = get_connector()
+    try:
+        with conn.cursor() as cur:
+            cur.execute(sql)
+            return cur.fetchall()
+    finally:
+        conn.close()
