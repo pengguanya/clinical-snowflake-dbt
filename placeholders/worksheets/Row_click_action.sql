@@ -1,0 +1,1 @@
+-- Paste code from worksheet 'Row_click_action.sql' here and refactor following repo conventions.
