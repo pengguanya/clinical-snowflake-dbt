@@ -106,3 +106,59 @@ Parsing Error
 [0m01:01:33.740055 [info ] [MainThread]:   query_tag: None
 [0m01:01:33.740537 [info ] [MainThread]:   client_session_keep_alive: True
 [0m01:01:33.740990 [info ] [MainThread]:   host: None
+[0m01:01:33.741468 [info ] [MainThread]:   port: None
+[0m01:01:33.741924 [info ] [MainThread]:   proxy_host: None
+[0m01:01:33.742398 [info ] [MainThread]:   proxy_port: None
+[0m01:01:33.742843 [info ] [MainThread]:   protocol: None
+[0m01:01:33.743323 [info ] [MainThread]:   connect_retries: 1
+[0m01:01:33.743770 [info ] [MainThread]:   connect_timeout: None
+[0m01:01:33.744224 [info ] [MainThread]:   retry_on_database_errors: False
+[0m01:01:33.744671 [info ] [MainThread]:   retry_all: False
+[0m01:01:33.745127 [info ] [MainThread]:   insecure_mode: False
+[0m01:01:33.745574 [info ] [MainThread]:   reuse_connections: None
+[0m01:01:33.746256 [info ] [MainThread]: Registered adapter: snowflake=1.8.3
+[0m01:01:33.875740 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m01:01:33.876956 [debug] [MainThread]: Using snowflake connection "debug"
+[0m01:01:33.877542 [debug] [MainThread]: On debug: select 1 as id
+[0m01:01:33.878068 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m01:01:34.497993 [debug] [MainThread]: Snowflake adapter: Error running SQL: select 1 as id
+[0m01:01:34.499222 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m01:01:34.500488 [debug] [MainThread]: On debug: No close available on handle
+[0m01:01:34.501295 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m01:01:34.501967 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m01:01:34.502596 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </home/pengg3/work/clinical-data-management-snowflake-dbt/dbt/dbt_project.yml> not found
+
+[0m01:01:34.503191 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  250001 (08001): Failed to connect to DB: roche_pd.eu-central-1.snowflakecomputing.com:443. Invalid OAuth access token. 
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m01:01:34.504228 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_wall_clock_time": 1.8231473, "process_user_time": 4.808513, "process_kernel_time": 0.921523, "process_mem_max_rss": "228120", "process_in_blocks": "40", "process_out_blocks": "576", "command_success": false}
+[0m01:01:34.505046 [debug] [MainThread]: Command `dbt debug` failed at 01:01:34.504900 after 1.82 seconds
+[0m01:01:34.505710 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m01:01:34.506342 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x712c7ab03a50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x712c4df6ee90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x712c7a8cfe90>]}
+[0m01:01:34.507026 [debug] [MainThread]: Flushing usage events
+[0m01:01:35.007909 [debug] [MainThread]: Error sending anonymous usage statistics. Disabling tracking for this execution. If you wish to permanently disable tracking, see: https://docs.getdbt.com/reference/global-configs#send-anonymous-usage-stats.
+[0m01:01:36.936247 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7773dc193d10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7773dc192b90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7773dc192050>]}
+
+
+============================== 01:01:36.938852 | 81552fb8-d863-4fc4-9bd6-b59a67be1aaa ==============================
+[0m01:01:36.938852 [info ] [MainThread]: Running with dbt=1.8.6
+[0m01:01:36.939438 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '.', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt build --profiles-dir .', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m01:01:36.939838 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/pengg3/work/clinical-data-management-snowflake-dbt/dbt/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m01:01:36.940222 [debug] [MainThread]: Resource report: {"command_name": "build", "command_wall_clock_time": 0.037018027, "process_user_time": 1.378276, "process_kernel_time": 0.057885, "process_mem_max_rss": "116860", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m01:01:36.940534 [debug] [MainThread]: Command `dbt build` failed at 01:01:36.940471 after 0.04 seconds
+[0m01:01:36.940775 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7773e0d1de90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7773dc193750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7773dc193ed0>]}
+[0m01:01:36.941046 [debug] [MainThread]: Flushing usage events
+[0m01:01:37.361411 [debug] [MainThread]: Error sending anonymous usage statistics. Disabling tracking for this execution. If you wish to permanently disable tracking, see: https://docs.getdbt.com/reference/global-configs#send-anonymous-usage-stats.
