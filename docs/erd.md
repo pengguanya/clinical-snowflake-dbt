@@ -13,3 +13,19 @@ erDiagram
     }
     AE {
         string STUDYID
+        string USUBJID FK
+        int AESEQ
+        string AESTDTC
+        string AEENDTC
+        string AEDECOD
+        string AESEV
+        string AESER
+    }
+    CM {
+        string STUDYID
+        string USUBJID FK
+        string CMTRT
+        string CMSTDTC
+        string CMENDTC
+    }
+```
