@@ -34,3 +34,39 @@ def _ensure_table(conn, fqtn: str, columns: Iterable[str]) -> None:
 
 def _iter_batches(rows: List[Tuple], batch_size: int):
     for i in range(0, len(rows), batch_size):
+        yield rows[i : i + batch_size]
+
+
+def _insert_rows_without_stage(conn, df: pd.DataFrame, fqtn: str, batch_size: int = 1000) -> Tuple[bool, int]:
+    # Convert NaN -> None so DB-API sends NULLs
+    df2 = df.where(pd.notnull(df), None)
+
+    cols = list(df2.columns)
+    placeholders = ", ".join(["%s"] * len(cols))
+    sql = f"INSERT INTO {fqtn} ({', '.join(_q(c) for c in cols)}) VALUES ({placeholders})"
+
+    rows = [tuple(rec) for rec in df2.itertuples(index=False, name=None)]
+    inserted = 0
+    with conn.cursor() as cur:
+        for batch in _iter_batches(rows, batch_size):
+            cur.executemany(sql, batch)
+            inserted += len(batch)
+    # autocommit is typically True, but be explicit
+    try:
+        conn.commit()
+    except Exception:
+        pass
+    return True, inserted
+
+
+def load_dataframe(df: pd.DataFrame, table: str, schema: str):
+    cfg = SnowflakeConfig()
+    conn = get_connector()  # token/password already handled inside
+    try:
+        fqtn = _fqtn(cfg.database, schema, table)
+
+        # Always ensure table exists (VARCHAR columns for simplicity)
+        _ensure_table(conn, fqtn, df.columns)
+
+        use_bulk = os.getenv("SNOWFLAKE_BULK_STAGE", "true").lower() not in ("0", "false", "no")
+
