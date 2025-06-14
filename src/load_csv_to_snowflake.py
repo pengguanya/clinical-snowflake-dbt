@@ -70,3 +70,41 @@ def load_dataframe(df: pd.DataFrame, table: str, schema: str):
 
         use_bulk = os.getenv("SNOWFLAKE_BULK_STAGE", "true").lower() not in ("0", "false", "no")
 
+        if use_bulk:
+            if write_pandas is None:
+                raise RuntimeError(
+                    "Bulk path requires pandas + pyarrow. "
+                    "Install them or set SNOWFLAKE_BULK_STAGE=false to use row-wise inserts."
+                )
+            # Bulk path (will hit S3/stage)
+            success, nchunks, nrows, _ = write_pandas(
+                conn,
+                df,
+                table_name=table,
+                database=cfg.database,
+                schema=schema,
+                auto_create_table=False,  # table already ensured above
+            )
+            return success, nrows
+        else:
+            # Row-wise batched inserts (no S3 involved)
+            success, nrows = _insert_rows_without_stage(conn, df, fqtn, batch_size=1000)
+            return success, nrows
+    finally:
+        conn.close()
+
+
+def load_raw_folder(folder: str):
+    """Load every CSV in a folder to the RAW schema."""
+    import pathlib
+
+    cfg = SnowflakeConfig()
+    raw = pathlib.Path(folder)
+    total = 0
+    for p in sorted(raw.glob("*.csv")):
+        table = p.stem.upper()
+        df = pd.read_csv(p)
+        ok, n = load_dataframe(df, table=table, schema=cfg.schema_raw)
+        total += n
+        print(f"Loaded {n} rows into {cfg.database}.{cfg.schema_raw}.{table}")
+    return total
