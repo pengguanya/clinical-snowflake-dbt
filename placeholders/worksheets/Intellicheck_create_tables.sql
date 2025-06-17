@@ -1,0 +1,1 @@
+-- Paste code from worksheet 'Intellicheck_create_tables.sql' here and refactor following repo conventions.
