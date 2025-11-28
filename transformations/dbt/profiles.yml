@@ -1,0 +1,18 @@
+clinical_cdm_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+      schema: "{{ env_var('SNOWFLAKE_SCHEMA_STG') }}"   # dbt default; models override
+      threads: 4
+
+      # switch by env:
+      authenticator: "{{ 'oauth' if env_var('SNOWFLAKE_AUTH_METHOD') == 'oauth' else env_var('SNOWFLAKE_AUTH_METHOD','snowflake') }}"
+
+      # dbt will inject the token when authenticator is 'oauth'
+      token: "{{ env_var('SNOWFLAKE_OAUTH_TOKEN') }}"

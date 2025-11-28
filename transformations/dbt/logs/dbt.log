@@ -1,0 +1,28 @@
+[0m00:46:02.091390 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f0ea2d8ab90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f0ea3112490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f0ea2d458d0>]}
+
+
+============================== 00:46:02.101518 | 9dc8278f-dc37-4098-8d79-185bc992e3a8 ==============================
+[0m00:46:02.101518 [info ] [MainThread]: Running with dbt=1.8.6
+[0m00:46:02.101930 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/pengg3/work/clinical-data-management-snowflake-dbt/transformations/dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': '/home/pengg3/work/clinical-data-management-snowflake-dbt/transformations/dbt/logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'invocation_command': 'dbt deps', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m00:46:02.169681 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '9dc8278f-dc37-4098-8d79-185bc992e3a8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f0ea2e0c310>]}
+[0m00:46:02.195892 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m00:46:02.196482 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m00:46:02.196903 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.13764225, "process_user_time": 3.869259, "process_kernel_time": 0.169879, "process_mem_max_rss": "127976", "process_in_blocks": "288", "process_out_blocks": "23688"}
+[0m00:46:02.197244 [debug] [MainThread]: Command `dbt deps` succeeded at 00:46:02.197177 after 0.14 seconds
+[0m00:46:02.197517 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f0ea2da8390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f0ea2daaf90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f0ea7a93dd0>]}
+[0m00:46:02.197799 [debug] [MainThread]: Flushing usage events
+[0m00:46:02.746932 [debug] [MainThread]: Error sending anonymous usage statistics. Disabling tracking for this execution. If you wish to permanently disable tracking, see: https://docs.getdbt.com/reference/global-configs#send-anonymous-usage-stats.
+[0m00:46:04.499545 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d55e3f9af50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d55e3f9bb10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d55e3f37350>]}
+
+
+============================== 00:46:04.501222 | 2526533c-9bfc-46ad-a2a5-59845e86f600 ==============================
+[0m00:46:04.501222 [info ] [MainThread]: Running with dbt=1.8.6
+[0m00:46:04.501606 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/pengg3/work/clinical-data-management-snowflake-dbt/transformations/dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/home/pengg3/work/clinical-data-management-snowflake-dbt/transformations/dbt/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt build', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m00:46:04.503356 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Could not find profile named 'clinical_cdm_profile'
+[0m00:46:04.503862 [debug] [MainThread]: Resource report: {"command_name": "build", "command_wall_clock_time": 0.037775062, "process_user_time": 1.390497, "process_kernel_time": 0.051943, "process_mem_max_rss": "117180", "process_out_blocks": "16", "command_success": false, "process_in_blocks": "0"}
+[0m00:46:04.504216 [debug] [MainThread]: Command `dbt build` failed at 00:46:04.504151 after 0.04 seconds
+[0m00:46:04.504507 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d55e3fa2d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d55e3f35d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d55e8a62d50>]}
+[0m00:46:04.504793 [debug] [MainThread]: Flushing usage events
+[0m00:46:04.896897 [debug] [MainThread]: Error sending anonymous usage statistics. Disabling tracking for this execution. If you wish to permanently disable tracking, see: https://docs.getdbt.com/reference/global-configs#send-anonymous-usage-stats.

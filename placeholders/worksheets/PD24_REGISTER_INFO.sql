@@ -1,0 +1,1 @@
+-- Paste code from worksheet 'PD24_REGISTER_INFO.sql' here and refactor following repo conventions.
